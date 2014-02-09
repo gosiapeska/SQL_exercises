@@ -1,0 +1,11 @@
+SELECT f.docid, SUM(f.count*tt.count) prd FROM frequency f
+JOIN (
+SELECT 'q' as docid, 'washington' as term, 1 as count 
+UNION
+SELECT 'q' as docid, 'taxes' as term, 1 as count
+UNION 
+SELECT 'q' as docid, 'treasury' as term, 1 as count
+) tt
+ON tt.term = f.term
+group by f.docid
+order by prd desc, f.docid;

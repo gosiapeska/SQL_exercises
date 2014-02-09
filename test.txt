@@ -1,0 +1,2 @@
+Select docid, SUM(count) s from frequency where term in ('washington', 'taxes', 'treasury')
+group by docid order by s;

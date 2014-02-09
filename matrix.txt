@@ -1,0 +1,3 @@
+SELECT o.docid, SUM(o.count * t.count) 
+  FROM frequency o JOIN frequenc t ON o.term = t.term
+group by o.docid;
